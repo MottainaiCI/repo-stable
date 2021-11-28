@@ -8,9 +8,6 @@ requires:
 - category: "groups"
   name: "mottainai"
   version: ">=0"
-- category: "container"
-  name: "docker"
-  version: ">=0"
 
 labels:
   github.repo: "MottainaiCI"

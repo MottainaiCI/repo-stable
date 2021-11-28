@@ -40,8 +40,8 @@ jobs:
         PREVIOUS: ${{ github.event.before }}
       run: |
         curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sudo sh
-        wget -O /usr/bin/luet https://github.com/geaaru/luet/releases/download/v0.20.0-geaaru/luet-v0.20.0-geaaru-linux-amd64
-        chmod a+x /usr/bin/luet
+        sudo wget -O /usr/bin/luet https://github.com/geaaru/luet/releases/download/v0.20.0-geaaru/luet-v0.20.0-geaaru-linux-amd64
+        sudo chmod a+x /usr/bin/luet
         sudo -E make build-all create-repo
 
     - name: Deploy GH Pages 🚀

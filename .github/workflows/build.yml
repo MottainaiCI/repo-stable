@@ -39,7 +39,7 @@ jobs:
       env:
         PREVIOUS: ${{ github.event.before }}
       run: |
-        curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh
+        curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sudo sh
         sudo -E make build-all create-repo
 
     - name: Deploy GH Pages 🚀

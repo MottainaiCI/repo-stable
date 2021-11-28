@@ -9,6 +9,7 @@ COMPRESSION?=zstd
 CLEAN?=true
 TREE?=./packages
 BUILD_ARGS?= --pull --image-repository quay.io/geaaru/mottainairepo-amd64-cache --only-target-package
+CONFIG?= --config conf/luet.yaml
 export LUET_BIN?=$(LUET)
 
 .PHONY: all
@@ -26,25 +27,25 @@ clean:
 .PHONY: build
 build: clean
 	mkdir -p $(ROOT_DIR)/build
-	$(LUET) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(LUET) build $(BUILD_ARGS) $(CONFIG) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: build-all
 build-all: clean
 	mkdir -p $(ROOT_DIR)/build
-	$(LUET) build $(BUILD_ARGS) --tree=$(TREE) --all --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(LUET) build $(BUILD_ARGS) $(CONFIG) --tree=$(TREE) --all --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 	rm -rf $(ROOT_DIR)/build/*.image.tar
 
 .PHONY: rebuild
 rebuild:
-	$(LUET) build $(BUILD_ARGS) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(LUET) build $(BUILD_ARGS) $(CONFIG) --tree=$(TREE) $(PACKAGES) --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: rebuild-all
 rebuild-all:
-	$(LUET) build $(BUILD_ARGS) --tree=$(TREE) --all --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
+	$(LUET) build $(BUILD_ARGS) $(CONFIG) --tree=$(TREE) --all --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
 .PHONY: create-repo
 create-repo:
-	$(LUET) create-repo --tree "$(TREE)" \
+	$(LUET) create-repo $(CONFIG) --tree "$(TREE)" \
     --output $(ROOT_DIR)/build \
     --packages $(ROOT_DIR)/build \
     --name "mottainai-stable" \

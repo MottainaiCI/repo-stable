@@ -1,0 +1,15 @@
+image: "quay.io/mocaccino/extra"
+prelude:
+- >-
+  luet install -y development/make lang/go vcs/git --force &&
+  luet cleanup &&
+  git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/{{ .Values.name }}.git
+- >-
+  cd {{ .Values.name }} && git checkout "${GIT_TAG%\+*}" &&
+  make build &&
+  mkdir /{{ .Values.name }}/usr/bin -p &&
+  cp {{ .Values.name }} /{{ .Values.name }}/usr/bin/
+env:
+- GIT_TAG=v{{ .Values.version }}
+- LUET_NOLOCK=true
+package_dir: /{{ .Values.name }}

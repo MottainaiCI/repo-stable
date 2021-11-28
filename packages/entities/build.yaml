@@ -1,0 +1,15 @@
+image: golang
+prelude:
+- apt-get update
+- apt-get install git
+- git clone https://github.com/geaaru/entities
+package_dir: /entities
+steps:
+- >-
+  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  cd entities && git checkout v"${PACKAGE_VERSION}" &&
+  make build &&
+  mkdir /entities/usr/bin -p &&
+  mv entities /entities/usr/bin/entities &&
+  cd /entities/usr/bin &&
+  ln -s entities luet-entities

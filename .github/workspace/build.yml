@@ -1,0 +1,53 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        git fetch --prune --unshallow
+
+    - name: Release space from worker
+      run: |
+        sudo rm -rf /usr/local/lib/android # will release about 10 GB if you don't need Android
+        sudo rm -rf /usr/share/dotnet # will release about 20GB if you don't need .NET
+
+    - name: setup-docker
+      uses: docker-practice/actions-setup-docker@0.0.1
+
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.16.x
+
+    - name: Login to DockerHub Registry
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      run: echo ${{ secrets.QUAY_PASSWORD }} | sudo -E docker login -u ${{ secrets.QUAY_USERNAME }} --password-stdin quay.io
+
+    - name: Set Push options
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        #run: echo "BUILD_ARGS=--push --only-target-package --pull --image-repository quay.io/geaaru/mottainai-repo-amd64-cache" >> $GITHUB_ENV
+      run: echo "BUILD_ARGS= --only-target-package --pull --image-repository quay.io/geaaru/mottainai-repo-amd64-cache" >> $GITHUB_ENV
+
+    - name: Install and Build 🔧 
+      env:
+        PREVIOUS: ${{ github.event.before }}
+      run: |
+        curl https://raw.githubusercontent.com/geaaru/luet/geaaru/contrib/config/get_luet_root.sh | sh
+        sudo -E make build-all create-repo
+
+    - name: Deploy GH Pages 🚀
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      uses: JamesIves/github-pages-deploy-action@3.6.2
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: build # The folder the action should deploy.
+        CLEAN: true # Automatically remove deleted files from the deploy branch
+        SINGLE_COMMIT: true

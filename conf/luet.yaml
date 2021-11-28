@@ -6,6 +6,8 @@ general:
 
   show_build_output: true
 
+solver:
+  implementation: "solverv2"
 system:
   tmpdir_base: "/luetmp"
 

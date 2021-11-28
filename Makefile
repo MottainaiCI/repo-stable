@@ -1,4 +1,4 @@
-BACKEND?=docker
+BACKEND?=dockerv2
 CONCURRENCY?=1
 
 # Abs path only. It gets copied in chroot in pre-seed stages

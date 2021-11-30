@@ -1,0 +1,12 @@
+image: "golang"
+package_dir: /jq
+env:
+- ARCH=linux64
+prelude:
+- apt-get update && apt-get install curl
+steps:
+- | 
+   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+   mkdir -p /${PACKAGE_NAME}/usr/bin && \
+   curl -L https://github.com/stedolan/jq/releases/download/jq-${PACKAGE_VERSION}/jq-${ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+   chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}

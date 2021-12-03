@@ -1,0 +1,16 @@
+image: "golang"
+prelude:
+- apt-get update
+- apt-get install -y git make
+- git clone https://github.com/${GITHUB_ORG}/${PACKAGE_NAME}.git
+env:
+- GITHUB_ORG=MottainaiCI
+- GIT_HASH=v{{ .Values.version }}
+- LUET_YES=true
+steps:
+- >-
+  cd ${PACKAGE_NAME} &&
+  git checkout "${GIT_HASH%\+*}" &&
+  make build && mv ${PACKAGE_NAME} /usr/bin/${PACKAGE_NAME}
+includes:
+- /usr/bin/replicant

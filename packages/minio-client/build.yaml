@@ -4,7 +4,7 @@ prelude:
 package_dir: /{{ .Values.name }}
 steps:
 - |
-  ARCH=amd64 &&
+  ARCH=amd64 && \
   RES=$(curl --no-progress-meter -L https://dl.min.io/client/mc/release/linux-${ARCH}/mc --output /usr/bin/mc -w '%{http_code}') && \
   eval 'if [[ $RES != "200" ]]; then exit 1 ; fi'
 - >-

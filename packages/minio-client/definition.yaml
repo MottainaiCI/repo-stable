@@ -1,0 +1,7 @@
+category: "net-fs"
+name: "minio-client"
+version: "0.20211114"
+labels:
+  github.repo: "minio"
+  github.owner: "minio"
+  autobump.strategy: "snapshot"

@@ -1,0 +1,12 @@
+image: "alpine"
+prelude:
+- apk add curl
+package_dir: /{{ .Values.name }}
+steps:
+- |
+  ARCH=amd64 &&
+  RES=$(curl --no-progress-meter -L https://dl.min.io/client/mc/release/linux-${ARCH}/mc --output /usr/bin/mc -w '%{http_code}') && \
+  eval 'if [[ $RES != "200" ]]; then exit 1 ; fi'
+- >-
+  chmod a+x /usr/bin/mc && mkdir /{{ .Values.name }}/usr/bin -p &&
+  mv /usr/bin/mc /{{ .Values.name }}/usr/bin/mc

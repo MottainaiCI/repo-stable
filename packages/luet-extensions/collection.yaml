@@ -2,11 +2,12 @@ packages:
   - category: "system"
     name: "luet-devkit"
     description: "Luet devkit package"
-    version: 0.11.8
+    version: 0.12.0
+    fork: "geaaru"
     live: false
     labels:
       github.repo: "extensions"
-      github.owner: "Luet-lab"
+      github.owner: "geaaru"
     extensions: >-
       remote-exec autobump-github geniso genimage qa-artefacts parallel-tools portage apkbuildconverter k8s-build-scheduler repo-devkit
   - category: "system"

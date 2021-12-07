@@ -4,11 +4,17 @@ env:
 prelude:
 - apt-get update
 - apt-get install -y make git upx
-- git clone https://github.com/Luet-lab/extensions
+- git clone https://github.com/{{ ( index .Values.labels "github.owner" ) }}/extensions
 {{- if not .Values.live }}
+{{- if .Values.fork }}
+- |
+   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+   cd extensions && git checkout -b build v${PACKAGE_VERSION}-{{ .Values.fork }}
+{{ else }}
 - |
    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
    cd extensions && git checkout -b build v${PACKAGE_VERSION}
+{{ end }}
 {{- end }}
 - mkdir /luet-extensions
 - go get gopkg.in/yaml.v3

@@ -3,7 +3,7 @@ package_dir: /jq
 env:
 - ARCH=linux64
 prelude:
-- apt-get update && apt-get install curl
+- apt-get update && apt-get install curl -y
 steps:
 - | 
    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \

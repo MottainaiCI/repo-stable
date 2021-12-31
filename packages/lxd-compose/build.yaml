@@ -1,10 +1,16 @@
-image: "quay.io/mocaccino/extra"
+image: "golang"
 prelude:
-- luet install -y development/make lang/go vcs/git
-- git clone https://github.com/MottainaiCI/lxd-compose.git
+- >-
+  apt-get update &&
+  apt-get install -y git make
+- git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
 env:
 - GIT_HASH=v{{ .Values.version }}
+package_dir: /{{ .Values.name }}
 steps:
-- cd lxd-compose && git checkout "${GIT_HASH%\+*}" && make build && mv lxd-compose /usr/bin/lxd-compose
-includes:
-- /usr/bin/lxd-compose
+- >-
+  cd {{ .Values.name }} &&
+  git checkout "${GIT_HASH%\+*}" &&
+  make build &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mv {{ .Values.name }} /{{ .Values.name }}/usr/bin/{{ .Values.name }}

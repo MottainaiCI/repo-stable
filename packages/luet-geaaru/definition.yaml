@@ -1,6 +1,6 @@
 category: "system"
 name: "luet-geaaru"
-version: "0.22.3"
+version: "0.22.4"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

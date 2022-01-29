@@ -1,17 +1,23 @@
-image: "quay.io/mocaccino/extra"
+image: "golang"
 prelude:
-- luet install development/make lang/go vcs/git
-- mkdir -p /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}
-- cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }} && git clone https://github.com/{{ ( index .Values.labels  "github.repo" ) }}/{{ ( index .Values.labels "original.package.name" ) }}
+- >-
+  apt-get update &&
+  apt-get install -y git make &&
+  mkdir -p /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }} &&
+  cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }} &&
+  git clone https://github.com/{{ ( index .Values.labels  "github.repo" ) }}/{{ ( index .Values.labels "original.package.name" ) }}
 env:
 - GOPATH=/go
 - LUET_YES=true
 - PKGNAME={{ ( index .Values.labels "original.package.name" ) }}
+package_dir: /{{ .Values.name }}
 steps:
 - |
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/${PKGNAME} && \
   git checkout v{{ ( index .Values.labels "original.package.version" ) }} && \
   sed -e 's|CGO_ENABLED=1|CGO_ENABLED=0|g' -i Makefile && \
-  make ${PKGNAME} && mv ${PKGNAME} /usr/bin/${PKGNAME}
-includes:
-- /usr/bin/{{ ( index .Values.labels "original.package.name" ) }}
+  make ${PKGNAME} &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mkdir -p /{{ .Values.name }}/usr/share/pkgs-checker/ &&
+  mv ${PKGNAME} /{{ .Values.name }}/usr/bin/${PKGNAME} &&
+  mv contrib/gen-uses-filter.yaml /{{ .Values.name }}/usr/share/pkgs-checker/

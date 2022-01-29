@@ -12,10 +12,10 @@ env:
 - PKGNAME={{ ( index .Values.labels "original.package.name" ) }}
 package_dir: /{{ .Values.name }}
 steps:
-- |
-  cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/${PKGNAME} && \
-  git checkout v{{ ( index .Values.labels "original.package.version" ) }} && \
-  sed -e 's|CGO_ENABLED=1|CGO_ENABLED=0|g' -i Makefile && \
+- >-
+  cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/${PKGNAME} &&
+  git checkout v{{ ( index .Values.labels "original.package.version" ) }} &&
+  sed -e 's|CGO_ENABLED=1|CGO_ENABLED=0|g' -i Makefile &&
   make ${PKGNAME} &&
   mkdir -p /{{ .Values.name }}/usr/bin &&
   mkdir -p /{{ .Values.name }}/usr/share/pkgs-checker/ &&

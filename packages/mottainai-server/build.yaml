@@ -35,11 +35,10 @@ steps:
   cp contrib/config/mottainai-server.yaml.example /{{ .Values.name }}/etc/mottainai/mottainai-server.yaml && \
   cp -Rv templates /{{ .Values.name }}${LIB_DIR}/ && \
   cp -Rv public /{{ .Values.name }}${LIB_DIR} && \
-  cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/${SRV_DIR}/ && \
-  cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/lib/systemd/system/
+  cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/${SRV_DIR}/
+#  cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/lib/systemd/system/
 
 - >-
   chmod -R 770 /{{ .Values.name }}${LIB_DIR} &&
   chmod -R 774 /{{ .Values.name }}${LIB_DIR}/public &&
   chmod -R 774 /{{ .Values.name }}${SRV_DIR}
-

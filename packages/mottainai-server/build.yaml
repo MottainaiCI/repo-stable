@@ -3,8 +3,10 @@ prelude:
 - >-
   apt-get update &&
   apt-get install -y git make
-- >- mkdir -p go/src/github.com/MottainaiCI/ &&
-  cd go/src/github.com/MottainaiCI && git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
+- >-
+  mkdir -p go/src/github.com/MottainaiCI/ &&
+  cd go/src/github.com/MottainaiCI &&
+  git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
 # turn the detached message off
 - git config --global advice.detachedHead false
 env:

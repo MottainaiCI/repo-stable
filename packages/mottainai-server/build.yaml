@@ -1,8 +1,10 @@
-image: "quay.io/mocaccino/extra"
+image: "golang"
 prelude:
-- luet install development/make lang/go vcs/git
-- mkdir -p go/src/github.com/MottainaiCI/
-- cd go/src/github.com/MottainaiCI && git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
+- >-
+  apt-get update &&
+  apt-get install -y git make
+- >- mkdir -p go/src/github.com/MottainaiCI/ &&
+  cd go/src/github.com/MottainaiCI && git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
 # turn the detached message off
 - git config --global advice.detachedHead false
 env:
@@ -34,7 +36,8 @@ steps:
   cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/${SRV_DIR}/ && \
   cp -v contrib/systemd/mottainai-server.service /{{ .Values.name }}/lib/systemd/system/
 
-- chmod -R 770 /{{ .Values.name }}${LIB_DIR}
-- chmod -R 774 /{{ .Values.name }}${LIB_DIR}/public
-- chmod -R 774 /{{ .Values.name }}${SRV_DIR}
+- >-
+  chmod -R 770 /{{ .Values.name }}${LIB_DIR} &&
+  chmod -R 774 /{{ .Values.name }}${LIB_DIR}/public &&
+  chmod -R 774 /{{ .Values.name }}${SRV_DIR}
 

@@ -1,0 +1,103 @@
+path: /home/runner/work/repo-stable/repo-stable/build/yq4-utils-4.20.2.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+    mkdir -p /${PACKAGE_NAME}/usr/bin && \
+    YQ_ARCH=amd64 && \
+    curl -L https://github.com/mikefarah/yq/releases/download/v${PACKAGE_VERSION}/yq_linux_${YQ_ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}
+  env: []
+  prelude:
+  - apk add curl
+  image: alpine
+  seed: alpine
+  package:
+    id: 0
+    name: yq4
+    version: 4.20.2
+    category: utils
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri:
+    - https://github.com/mikefarah/yq
+    - https://yq.readthedocs.io
+    - https://github.com/kislyuk/yq
+    - https://pypi.org/project/yq
+    license: MIT
+    buildtimestamp: 2022-03-12 20:36:53.684215756 +0000 UTC m=+427.567188886
+    labels:
+      autobump.strategy: release
+      github.owner: mikefarah
+      github.repo: yq
+    treedir: ./packages
+    repository: ""
+  package_dir: /yq4
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: c9ed80ac0bc6371644d3a641791084ec7ec34a95ebf168882ed8ae42cfaffa7d
+compressiontype: zstd
+files:
+- usr/bin/yq4
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: yq4
+  version: 4.20.2
+  category: utils
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri:
+  - https://github.com/mikefarah/yq
+  - https://yq.readthedocs.io
+  - https://github.com/kislyuk/yq
+  - https://pypi.org/project/yq
+  license: MIT
+  buildtimestamp: ""
+  labels:
+    autobump.strategy: release
+    github.owner: mikefarah
+    github.repo: yq
+  treedir: ""
+  repository: ""

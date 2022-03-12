@@ -1,0 +1,176 @@
+path: /home/runner/work/repo-stable/repo-stable/build/mottainai-agent-dev-util-0.1.3.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - mkdir /${PACKAGE_NAME}
+  - mkdir -p /${PACKAGE_NAME}/usr/bin
+  - mkdir -p /${PACKAGE_NAME}/etc/mottainai
+  - mkdir -p /${PACKAGE_NAME}${LIB_DIR}
+  - mkdir -p /${PACKAGE_NAME}${SRV_DIR}/build_temp
+  - mkdir -p /${PACKAGE_NAME}${SRV_DIR}/build/lxc
+  - mkdir -p /${PACKAGE_NAME}${SRV_DIR}/systemd
+  - |
+    cd ${GOPATH}/src/github.com/${GITHUB_ORG}/mottainai-server/${PACKAGE_NAME}/ && \
+    mv ${PACKAGE_NAME} /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    cp contrib/config/mottainai-agent.yaml.example /${PACKAGE_NAME}/etc/mottainai/mottainai-agent.yaml && \
+    cp contrib/config/lxc/config.yml /${PACKAGE_NAME}${SRV_DIR}/build/lxc && \
+    chmod a+x contrib/scripts/mottainai-lxd-cleanup-zombie-containers && \
+    chmod a+x contrib/scripts/mottainai-lxd-cleanup-expired-cached-images && \
+    cp contrib/scripts/mottainai-lxd-cleanup-zombie-containers /${PACKAGE_NAME}/usr/bin/ && \
+    cp contrib/scripts/mottainai-lxd-cleanup-expired-cached-images /${PACKAGE_NAME}/usr/bin/ && \
+    chmod -R 774 /${PACKAGE_NAME}${SRV_DIR}/build/lxc && \
+    chmod -R 774 /${PACKAGE_NAME}${SRV_DIR}/build && \
+    chmod -R 774 /${PACKAGE_NAME}${SRV_DIR}/build_temp && \
+    cp contrib/systemd/mottainai* /${PACKAGE_NAME}${SRV_DIR}/systemd/
+  env:
+  - GOPATH=/luetbuild/go/
+  - LIB_DIR=/var/lib/mottainai
+  - SRV_DIR=/srv/mottainai
+  prelude: []
+  image: ""
+  seed: quay.io/geaaru/mottainai-repo-amd64-cache:c628628f6969d6538b389d314859f9d2084174d00843a879ebd36557c4b9a103
+  package:
+    id: 0
+    name: mottainai-agent
+    version: 0.1.3
+    category: dev-util
+    useflags: []
+    state: ""
+    packagerequires:
+    - id: 0
+      name: mottainai-server
+      version: '>=0'
+      category: dev-util
+      useflags: []
+      state: ""
+      packagerequires: []
+      packageconflicts: []
+      provides: []
+      hidden: false
+      annotations: {}
+      path: ""
+      description: ""
+      uri: []
+      license: ""
+      buildtimestamp: ""
+      labels: {}
+      treedir: ""
+      repository: ""
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: 2022-03-12 20:33:34.559303009 +0000 UTC m=+228.442276139
+    labels:
+      github.owner: mottainai-agent
+      github.repo: MottainaiCI
+    treedir: ./packages
+    repository: ""
+  package_dir: /mottainai-agent
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 9fd6615270ccd07981253ec0d193288ec4d4472570ebcefdbbf21e69eb4df21f
+compressiontype: zstd
+files:
+- etc/mottainai/mottainai-agent.yaml
+- srv/mottainai/build/lxc/config.yml
+- srv/mottainai/systemd/mottainai-agent-health.service
+- srv/mottainai/systemd/mottainai-agent-health.timer
+- srv/mottainai/systemd/mottainai-agent-health@.service
+- srv/mottainai/systemd/mottainai-agent-health@.timer
+- srv/mottainai/systemd/mottainai-agent.service
+- srv/mottainai/systemd/mottainai-agent@.service
+- usr/bin/mottainai-agent
+- usr/bin/mottainai-lxd-cleanup-expired-cached-images
+- usr/bin/mottainai-lxd-cleanup-zombie-containers
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: mottainai-agent
+  version: 0.1.3
+  category: dev-util
+  useflags: []
+  state: ""
+  packagerequires:
+  - id: 0
+    name: mottainai-agent
+    version: '>=0'
+    category: users
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  - id: 0
+    name: mottainai
+    version: '>=0'
+    category: groups
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri: []
+  license: ""
+  buildtimestamp: ""
+  labels:
+    github.owner: mottainai-agent
+    github.repo: MottainaiCI
+  treedir: ""
+  repository: ""

@@ -1,0 +1,95 @@
+path: /home/runner/work/repo-stable/repo-stable/build/macaronictl-app-admin-0.3.0.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - cd ${PACKAGE_NAME} && git checkout "${GIT_HASH%\+*}" && make build && mkdir -p
+    /macaronictl/usr/bin && mv ${PACKAGE_NAME} /macaronictl/usr/bin/${PACKAGE_NAME}
+  env:
+  - GITHUB_ORG=funtoo
+  - GIT_HASH=v0.3.0
+  prelude:
+  - apt-get update
+  - apt-get install -y git make
+  - git clone https://github.com/${GITHUB_ORG}/${PACKAGE_NAME}.git
+  image: golang
+  seed: golang
+  package:
+    id: 0
+    name: macaronictl
+    version: 0.3.0
+    category: app-admin
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: Macaroni Linux System Management CLI
+    uri:
+    - https://github.com/funtoo/macaronictl
+    license: GPL-3.0
+    buildtimestamp: 2022-03-12 20:38:59.668010313 +0000 UTC m=+553.550983543
+    labels:
+      github.owner: macaronictl
+      github.repo: funtoo
+    treedir: ./packages
+    repository: ""
+  package_dir: /macaronictl
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 8115234e1413632b5c0e5a7bfe3b3bab32087e840149c0d39cf172aa070ddcdc
+compressiontype: zstd
+files:
+- usr/bin/macaronictl
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: macaronictl
+  version: 0.3.0
+  category: app-admin
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: Macaroni Linux System Management CLI
+  uri:
+  - https://github.com/funtoo/macaronictl
+  license: GPL-3.0
+  buildtimestamp: ""
+  labels:
+    github.owner: macaronictl
+    github.repo: funtoo
+  treedir: ""
+  repository: ""

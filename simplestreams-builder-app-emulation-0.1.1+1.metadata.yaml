@@ -1,0 +1,92 @@
+path: /home/runner/work/repo-stable/repo-stable/build/simplestreams-builder-app-emulation-0.1.1+1.package.tar.zst
+dependencies: []
+compilespec:
+  steps: []
+  env:
+  - GIT_TAG=v0.1.1+1
+  prelude:
+  - apt-get update && apt-get install -y git make && git clone https://github.com/MottainaiCI/simplestreams-builder.git
+    && cd simplestreams-builder && git checkout "${GIT_TAG%\+*}" && make build &&
+    mkdir /simplestreams-builder/usr/bin -p && cp simplestreams-builder /simplestreams-builder/usr/bin/
+  image: golang
+  seed: golang
+  package:
+    id: 0
+    name: simplestreams-builder
+    version: 0.1.1+1
+    category: app-emulation
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: LXC/LXD Simplestreams Tree Builder
+    uri:
+    - https://github.com/MottainaiCI/simplestreams-builder
+    license: GPL-3.0
+    buildtimestamp: 2022-03-12 20:54:08.333228199 +0000 UTC m=+1462.216201429
+    labels:
+      github.owner: simplestreams-builder
+      github.repo: MottainaiCI
+    treedir: ./packages
+    repository: ""
+  package_dir: /simplestreams-builder
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: e8f5fd70a390cea2163da4584eaa8f0a009b88d5035c0e6d10337acc429c9904
+compressiontype: zstd
+files:
+- usr/bin/simplestreams-builder
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: simplestreams-builder
+  version: 0.1.1+1
+  category: app-emulation
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: LXC/LXD Simplestreams Tree Builder
+  uri:
+  - https://github.com/MottainaiCI/simplestreams-builder
+  license: GPL-3.0
+  buildtimestamp: ""
+  labels:
+    github.owner: simplestreams-builder
+    github.repo: MottainaiCI
+  treedir: ""
+  repository: ""

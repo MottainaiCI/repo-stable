@@ -1,0 +1,93 @@
+path: /home/runner/work/repo-stable/repo-stable/build/luet-geaaru-system-0.22.5.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+    cd luet && git checkout v"${PACKAGE_VERSION}-geaaru" && make build-small && mv luet /usr/bin/luet
+  env: []
+  prelude:
+  - apt-get update
+  - apt-get install -y git upx
+  - git clone https://github.com/geaaru/luet
+  image: golang
+  seed: golang
+  package:
+    id: 0
+    name: luet-geaaru
+    version: 0.22.5
+    category: system
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: 2022-03-12 21:02:27.779056542 +0000 UTC m=+1961.662029772
+    labels:
+      github.owner: geaaru
+      github.repo: luet
+    treedir: ./packages
+    repository: ""
+  package_dir: ""
+  retrieve: []
+  unpack: false
+  includes:
+  - /usr/bin/luet
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 4b2da7c00e4122c4fb92428d1374ec356309e5972e71543c2c65ea103b23bcfa
+compressiontype: zstd
+files:
+- usr/bin/luet
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: luet-geaaru
+  version: 0.22.5
+  category: system
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri: []
+  license: ""
+  buildtimestamp: ""
+  labels:
+    github.owner: geaaru
+    github.repo: luet
+  treedir: ""
+  repository: ""

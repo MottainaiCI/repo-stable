@@ -1,0 +1,97 @@
+path: /home/runner/work/repo-stable/repo-stable/build/jq-utils-1.6.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+    mkdir -p /${PACKAGE_NAME}/usr/bin && \
+    curl -L https://github.com/stedolan/jq/releases/download/jq-${PACKAGE_VERSION}/jq-${ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}
+  env:
+  - ARCH=linux64
+  prelude:
+  - apt-get update && apt-get install curl -y
+  image: golang
+  seed: golang
+  package:
+    id: 0
+    name: jq
+    version: "1.6"
+    category: utils
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri:
+    - http://stedolan.github.com/jq
+    license: MIT CC-BY-3.0
+    buildtimestamp: 2022-03-12 20:30:26.797434301 +0000 UTC m=+40.680407431
+    labels:
+      autobump.string_replace: '{ "jq-": "" }'
+      github.owner: stedolan
+      github.repo: jq
+    treedir: ./packages
+    repository: ""
+  package_dir: /jq
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: quay.io/geaaru/mottainai-repo-amd64-cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: ffc24026fd60915305e6ac5fea0e49023cfbb7cc5cf98bdac0836d8d084395f4
+compressiontype: zstd
+files:
+- usr/bin/jq
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: jq
+  version: "1.6"
+  category: utils
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri:
+  - http://stedolan.github.com/jq
+  license: MIT CC-BY-3.0
+  buildtimestamp: ""
+  labels:
+    autobump.string_replace: '{ "jq-": "" }'
+    github.owner: stedolan
+    github.repo: jq
+  treedir: ""
+  repository: ""

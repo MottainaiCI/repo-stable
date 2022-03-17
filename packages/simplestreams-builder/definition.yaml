@@ -1,6 +1,6 @@
 category: "app-emulation"
 name: "simplestreams-builder"
-version: "0.1.1+1"
+version: "0.2.0"
 labels:
   github.repo: "MottainaiCI"
   github.owner: "simplestreams-builder"

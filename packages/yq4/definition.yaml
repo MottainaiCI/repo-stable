@@ -1,5 +1,5 @@
 name: yq4
-version: 4.22.1+1
+version: 4.24.2
 category: utils
 uri:
 - https://github.com/mikefarah/yq

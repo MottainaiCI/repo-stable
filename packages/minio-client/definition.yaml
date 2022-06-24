@@ -1,6 +1,6 @@
 category: "net-fs"
 name: "minio-client"
-version: "0.20220504"
+version: "0.20220624"
 labels:
   github.repo: "minio"
   github.owner: "minio"

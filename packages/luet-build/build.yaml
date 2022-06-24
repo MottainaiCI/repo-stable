@@ -1,0 +1,13 @@
+image: golang
+prelude:
+- apt-get update
+- apt-get install -y git upx
+- git clone https://github.com/geaaru/luet
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  cd luet && git checkout v"${PACKAGE_VERSION}-geaaru" &&
+  make build-build-small &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mv luet-build/luet-build /{{ .Values.name }}/usr/bin/luet-build

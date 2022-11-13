@@ -8,15 +8,15 @@ prelude:
 - >-
   mkdir /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ -p &&
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ &&
-  git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/{{ .Values.name }}.git
+  git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder.git
 env:
 - GOPATH=/go
 - DEBIAN_FRONTEND=noninteractive
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/{{ .Values.name }} &&
+  cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder &&
   git checkout v${PACKAGE_VERSION%\+*} &&
   make &&
   mkdir /{{ .Values.name }}/usr/bin -p &&
-  mv /go/bin/{{ .Values.name }} /{{ .Values.name }}/usr/bin/{{ .Values.name }}
+  mv /go/bin/distrobuilder /{{ .Values.name }}/usr/bin/distobuilder

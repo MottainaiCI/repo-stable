@@ -16,4 +16,4 @@ steps:
   git checkout v${PACKAGE_VERSION%\+*} &&
   make &&
   mkdir /{{ .Values.name }}/usr/bin -p &&
-  mv /go/bin/distrobuilder /{{ .Values.name }}/usr/bin/distobuilder
+  mv /go/bin/distrobuilder /{{ .Values.name }}/usr/bin/distrobuilder

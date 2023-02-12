@@ -3,9 +3,11 @@ prelude:
 - apt-get update
 - apt-get install -y git upx
 - git clone https://github.com/geaaru/luet
+package_dir: /{{ .Values.name }}
 steps:
-- |
-  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
-  cd luet && git checkout v"${PACKAGE_VERSION}-geaaru" && make build && mv luet /usr/bin/luet
-includes:
-- /usr/bin/luet
+- >-
+  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  cd luet && git checkout v"${PACKAGE_VERSION}-geaaru" &&
+  make build &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mv luet /{{ .Values.name }}/usr/bin/luet

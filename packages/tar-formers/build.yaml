@@ -1,0 +1,14 @@
+image: macaronios/terragon:latest
+prelude:
+- >-
+  luet i --sync-repos upx-bin git make go &&
+  git clone https://github.com/geaaru/tar-formers
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  mkdir /{{ .Values.name }}/usr/bin/ -p &&
+  cd {{ .Values.name }} &&
+  git checkout v"${PACKAGE_VERSION}" &&
+  make build-small &&
+  mv {{ .Values.name }} /{{ .Values.name }}/usr/bin/{{ .Values.name }}

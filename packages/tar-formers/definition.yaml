@@ -1,0 +1,8 @@
+category: "app-arch"
+name: "tar-formers"
+version: "0.7.0"
+description: "Tool to process and modify tar streams/flows."
+license: "GPL-3.0"
+labels:
+  github.repo: "tar-formers"
+  github.owner: "geaaru"

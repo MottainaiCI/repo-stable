@@ -1,5 +1,5 @@
 name: tar-formers
-version: 0.7.0+1
+version: 0.7.0+2
 category: app-arch
 description: Tool to process and modify tar streams/flows.
 license: GPL-3.0

@@ -1,4 +1,4 @@
-image: macaronios/terragon-minimal:latest
+image: macaronios/terragon-minimal:latest-amd64
 prelude:
 - >-
   luet i --sync-repos upx-bin git make go &&

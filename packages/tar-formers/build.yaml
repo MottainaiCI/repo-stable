@@ -1,7 +1,7 @@
 image: macaronios/terragon-minimal:latest-amd64
 prelude:
 - >-
-  luet repo update && luet i upx-bin git make go &&
+  luet repo update && luet i -y upx-bin git make go &&
   git clone https://github.com/geaaru/tar-formers
 package_dir: /{{ .Values.name }}
 steps:

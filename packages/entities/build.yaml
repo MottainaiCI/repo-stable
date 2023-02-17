@@ -3,8 +3,7 @@ prelude:
 - >-
   luet repo update &&
   luet i -y upx-bin git make go virtual/base &&
-  mkdir /tmp &&
-  git clone https://github.com/geaaru/entities
+  mkdir /tmp && git clone https://github.com/geaaru/entities
 package_dir: /entities
 steps:
 - >-
@@ -12,5 +11,4 @@ steps:
   cd entities && git checkout v"${PACKAGE_VERSION}"-{{ ( index .Values.labels "github.owner" ) }} &&
   make build-small &&
   mkdir /entities/usr/bin -p &&
-  mv entities /entities/usr/bin/entities &&
-  cd /entities/usr/bin &&
+  mv entities /entities/usr/bin/entities

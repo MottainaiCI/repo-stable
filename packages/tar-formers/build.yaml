@@ -1,12 +1,14 @@
 image: macaronios/terragon-minimal:latest-amd64
 prelude:
 - >-
-  luet repo update && luet i -y upx-bin git make go &&
+  luet repo update &&
+  luet i -y upx-bin git make go virtual/base &&
+  mkdir /tmp &&
   git clone https://github.com/geaaru/tar-formers
 package_dir: /{{ .Values.name }}
 steps:
 - >-
-  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  export PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
   mkdir /{{ .Values.name }}/usr/bin/ -p &&
   cd {{ .Values.name }} &&
   git checkout v"${PACKAGE_VERSION}" &&

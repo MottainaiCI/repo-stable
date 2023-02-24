@@ -1,6 +1,6 @@
 category: "system"
 name: "luet-geaaru-testing"
-version: "0.34.0"
+version: "0.34.1"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

@@ -1,6 +1,6 @@
 category: "system"
 name: "luet-build"
-version: "0.34.0"
+version: "0.34.2"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

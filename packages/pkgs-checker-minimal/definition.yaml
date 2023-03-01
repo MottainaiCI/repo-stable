@@ -1,12 +1,12 @@
 category: "dev-util"
 name: "pkgs-checker-minimal"
 description: "pkgs-checker version (without CGO stuff)"
-version: "0.13.0"
+version: "0.13.2"
 license: "GPL-3.0"
 labels:
   github.repo: "geaaru"
   github.owner: "pkgs-checker"
-  original.package.version: "0.13.0"
+  original.package.version: "0.13.2"
   original.package.name: "pkgs-checker"
 #conflicts:
 #- name: "pkgs-checker"

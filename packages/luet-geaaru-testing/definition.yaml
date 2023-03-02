@@ -5,5 +5,18 @@ labels:
   github.repo: "luet"
   github.owner: "geaaru"
 license: GPL-3.0
+- category: macaroni
+  name: anise
+  version: "0.34.2"
+- category: macaroni
+  name: pms
+  version: "0.34.2"
+conflicts:
+- category: system
+  name: luet-geaaru
+  version: '>=0'
+- category: system
+  name: luet-geaaru-thin
+  version: '>=0'
 uri:
 - https://github.com/geaaru/luet

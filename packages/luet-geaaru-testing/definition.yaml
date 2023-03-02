@@ -5,6 +5,7 @@ labels:
   github.repo: "luet"
   github.owner: "geaaru"
 license: GPL-3.0
+provides:
 - category: macaroni
   name: anise
   version: "0.34.2"

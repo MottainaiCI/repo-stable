@@ -4,6 +4,10 @@ category: utils
 uri:
 - http://stedolan.github.com/jq
 license: MIT CC-BY-3.0
+provides:
+- category: app-admin
+  name: jq
+  version: "1.6+2"
 labels:
   autobump.string_replace: '{ "jq-": "" }'
   github.owner: stedolan

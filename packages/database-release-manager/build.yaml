@@ -3,6 +3,7 @@ prelude:
 - >-
   luet repo update &&
   luet i make sys-devel-1.13/automake sys-devel-2.69/autoconf git m4 virtual/base bash &&
+  luet cleanup --purge-repos
 - >-
   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
   git config --global advice.detachedHead false &&

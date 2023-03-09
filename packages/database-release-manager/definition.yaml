@@ -1,10 +1,10 @@
-category: "database"
-name: "database-release-manager"
-version: "0.2.4"
-license: "GPL-2.0"
-description: "Software for manage database scripts and managing easy installations/developments"
+name: database-release-manager
+version: 0.2.4+1
+category: database
+description: Software for manage database scripts and managing easy installations/developments
 uri:
-  - https://github.com/geaaru/database-release-manager
+- https://github.com/geaaru/database-release-manager
+license: GPL-2.0
 labels:
-  github.repo: "database-release-manager"
-  github.owner: "geaaru"
+  github.owner: geaaru
+  github.repo: database-release-manager

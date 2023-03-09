@@ -1,5 +1,5 @@
 name: database-release-manager
-version: 0.2.4+1
+version: 0.2.4+2
 category: database
 description: Software for manage database scripts and managing easy installations/developments
 uri:

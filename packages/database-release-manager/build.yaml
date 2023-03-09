@@ -1,6 +1,8 @@
-image: "quay.io/mocaccino/extra"
+image: macaronios/terragon-minimal:latest-amd64
 prelude:
-- luet install development/make development/automake utils/autoconf development/m4 vcs/git shells/bash
+- >-
+  luet repo update &&
+  luet i make sys-devel-1.13/automake sys-devel-2.69/autoconf git m4 virtual/base bash &&
 - >-
   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
   git config --global advice.detachedHead false &&

@@ -1,6 +1,10 @@
 category: "system"
 name: "luet-build"
-version: "0.34.2"
+version: "0.35.0"
+provides:
+- category: macaroni
+  name: anise-build
+  version: "0.35.0"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

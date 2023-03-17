@@ -4,6 +4,9 @@ description: "Mottainai official Repository"
 type: "http"
 enable: true
 cached: true
-priority: 1
+priority: 30
 urls:
-- "https://raw.githubusercontent.com/MottainaiCI/repo-stable/gh-pages"
+  #- "https://raw.githubusercontent.com/MottainaiCI/repo-stable/gh-pages"
+- "https://dl.macaronios.org/repos/mottainai/"
+- "https://cdn2.macaronios.org/repos/mottainai/"
+- "https://macaronios.mirror.garr.it/repos/mottainai/"

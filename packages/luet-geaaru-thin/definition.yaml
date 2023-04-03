@@ -1,15 +1,15 @@
 category: "system"
 name: "luet-geaaru-thin"
-version: "0.35.2"
+version: "0.35.3"
 description: "Macaroni OS PMS - compressed version"
 license: "GPL-3.0"
 provides:
 - category: macaroni
   name: anise
-  version: "0.35.2"
+  version: "0.35.3"
 - category: macaroni
   name: pms
-  version: "0.35.2"
+  version: "0.35.3"
 conflicts:
 - category: system
   name: luet-geaaru

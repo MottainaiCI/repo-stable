@@ -1,6 +1,6 @@
 image: "macaronios/terragon-minimal:latest-amd64"
 prelude:
-- luet -i --sync-repos -y curl
+- luet i --sync-repos -y curl
 package_dir: /{{ .Values.name }}
 steps:
 - |

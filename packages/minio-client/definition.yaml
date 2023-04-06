@@ -1,8 +1,7 @@
-category: "net-fs"
-name: "minio-client"
-version: "0.20230323"
+name: minio-client
+version: 0.20230323+1
+category: net-fs
 labels:
-  github.repo: "minio"
-  github.owner: "minio"
-  package.version: "2023-03-23T20-03-04Z"
-
+  github.owner: minio
+  github.repo: minio
+  package.version: 2023-03-23T20-03-04Z

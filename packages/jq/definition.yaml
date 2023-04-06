@@ -5,7 +5,7 @@ uri:
 - http://stedolan.github.com/jq
 license: MIT CC-BY-3.0
 provides:
-- category: app-admin
+- category: app-misc
   name: jq
   version: "1.6+2"
 labels:

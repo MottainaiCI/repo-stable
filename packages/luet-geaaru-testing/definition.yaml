@@ -1,6 +1,6 @@
 category: "system"
 name: "luet-geaaru-testing"
-version: "0.35.4"
+version: "0.35.5"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"
@@ -8,10 +8,10 @@ license: GPL-3.0
 provides:
 - category: macaroni
   name: anise
-  version: "0.35.4"
+  version: "0.35.5"
 - category: macaroni
   name: pms
-  version: "0.35.4"
+  version: "0.35.5"
 conflicts:
 - category: system
   name: luet-geaaru

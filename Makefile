@@ -64,4 +64,4 @@ auto-bump: autobump
 
 .PHONY: validate
 validate:
-	luet tree validate -t ${TREE}
+	$(LUET) tree validate -t ${TREE}

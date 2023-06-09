@@ -1,13 +1,13 @@
 category: "system"
 name: "luet-geaaru"
-version: "0.36.0"
+version: "0.37.0"
 provides:
 - category: macaroni
   name: anise
-  version: "0.36.0"
+  version: "0.37.0"
 - category: macaroni
   name: pms
-  version: "0.36.0"
+  version: "0.37.0"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

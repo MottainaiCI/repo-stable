@@ -1,10 +1,10 @@
 category: "system"
 name: "luet-build-testing"
-version: "0.36.0"
+version: "0.38.0"
 provides:
 - category: macaroni
   name: anise-build-testing
-  version: "0.36.0"
+  version: "0.38.0"
 labels:
   github.repo: "luet"
   github.owner: "geaaru"

@@ -1,4 +1,4 @@
-image: macaronios/terragon-minimal-testing:latest-amd64
+image: macaronios/terragon-testing-minimal:latest-amd64
 prelude:
 - >-
   luet i -y --sync-repos make upx-bin go ca-certificates git &&

@@ -1,5 +1,5 @@
 name: luet-build-testing
-version: 0.38.0+2
+version: 0.38.0+3
 category: system
 provides:
 - name: anise-build-testing

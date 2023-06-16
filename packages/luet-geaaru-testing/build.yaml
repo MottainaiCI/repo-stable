@@ -1,8 +1,8 @@
-image: golang
+image: macaronios/terragon-minimal-testing
 prelude:
 - >-
-  apt-get update &&
-  apt-get install -y git upx &&
+  luet i -y --sync-repos make upx-bin go ca-certificates git &&
+  luet cleanup --purge-repos && mkdir /tmp &&
   git clone https://github.com/geaaru/luet
 package_dir: /{{ .Values.name }}
 steps:

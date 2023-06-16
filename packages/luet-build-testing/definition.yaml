@@ -1,10 +1,10 @@
-category: "system"
-name: "luet-build-testing"
-version: "0.38.0"
+name: luet-build-testing
+version: 0.38.0+1
+category: system
 provides:
-- category: macaroni
-  name: anise-build-testing
-  version: "0.38.0"
+- name: anise-build-testing
+  version: 0.38.0
+  category: macaroni
 labels:
-  github.repo: "luet"
-  github.owner: "geaaru"
+  github.owner: geaaru
+  github.repo: luet

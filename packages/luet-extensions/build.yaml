@@ -4,7 +4,7 @@ env:
 prelude:
 - >-
   luet i -y --sync-repos make upx-bin go ca-certificates git &&
-  luet cleanup --purge-repos && mkdir /tmp &&
+  luet cleanup --purge-repos && mkdir /tmp
 - git clone https://github.com/{{ ( index .Values.labels "github.owner" ) }}/extensions
 {{- if not .Values.live }}
 {{- if .Values.fork }}

@@ -2,7 +2,7 @@ packages:
   - category: "system"
     name: "luet-devkit"
     description: "Luet devkit package"
-    version: 0.14.0+1
+    version: 0.14.0+2
     fork: "geaaru"
     live: false
     labels:

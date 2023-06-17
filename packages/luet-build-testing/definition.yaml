@@ -1,9 +1,9 @@
 name: luet-build-testing
-version: 0.38.0+3
+version: 0.38.1
 category: system
 provides:
 - name: anise-build-testing
-  version: 0.38.0
+  version: 0.38.1
   category: macaroni
 labels:
   github.owner: geaaru

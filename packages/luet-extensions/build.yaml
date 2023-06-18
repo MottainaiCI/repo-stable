@@ -10,15 +10,14 @@ prelude:
 {{- if .Values.fork }}
 - |
    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
-   cd extensions && git checkout -b build v${PACKAGE_VERSION}-{{ .Values.fork }}
+   cd extensions && git checkout v${PACKAGE_VERSION}-{{ .Values.fork }}
 {{ else }}
 - |
    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
-   cd extensions && git checkout -b build v${PACKAGE_VERSION}
+   cd extensions && git checkout v${PACKAGE_VERSION}
 {{ end }}
 {{- end }}
 - mkdir /luet-extensions
-- go get gopkg.in/yaml.v3
 - cd extensions && make build
 package_dir: "/luet-extensions"
 steps:

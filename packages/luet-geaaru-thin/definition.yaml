@@ -1,22 +1,22 @@
-category: "system"
-name: "luet-geaaru-thin"
-version: "0.38.1"
-description: "Macaroni OS PMS - compressed version"
-license: "GPL-3.0"
-provides:
-- category: macaroni
-  name: anise
-  version: "0.38.1"
-- category: macaroni
-  name: pms
-  version: "0.38.1"
+name: luet-geaaru-thin
+version: 0.38.1+1
+category: system
 conflicts:
-- category: system
-  name: luet-geaaru
+- name: luet-geaaru
   version: '>=0'
-- category: system
-  name: luet-geaaru-testing
+  category: system
+- name: luet-geaaru-testing
   version: '>=0'
+  category: system
+provides:
+- name: anise
+  version: 0.38.1
+  category: macaroni
+- name: pms
+  version: 0.38.1
+  category: macaroni
+description: Macaroni OS PMS - compressed version
+license: GPL-3.0
 labels:
-  github.repo: "luet"
-  github.owner: "geaaru"
+  github.owner: geaaru
+  github.repo: luet

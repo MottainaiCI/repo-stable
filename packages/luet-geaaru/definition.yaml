@@ -1,16 +1,16 @@
-category: "system"
-name: "luet-geaaru"
-version: "0.38.1"
+name: luet-geaaru
+version: 0.38.1+1
+category: system
 provides:
-- category: macaroni
-  name: anise
-  version: "0.38.1"
-- category: macaroni
-  name: pms
-  version: "0.38.1"
-labels:
-  github.repo: "luet"
-  github.owner: "geaaru"
-license: GPL-3.0
+- name: anise
+  version: 0.38.1
+  category: macaroni
+- name: pms
+  version: 0.38.1
+  category: macaroni
 uri:
 - https://github.com/geaaru/luet
+license: GPL-3.0
+labels:
+  github.owner: geaaru
+  github.repo: luet

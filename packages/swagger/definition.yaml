@@ -1,5 +1,5 @@
 name: swagger
-version: 0.30.5+b3738f4
+version: 0.30.5+b3738f4.1
 category: dev-util
 uri:
 - https://github.com/go-swagger/go-swagger

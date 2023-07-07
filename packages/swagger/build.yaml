@@ -11,6 +11,6 @@ steps:
 - >-
   cd go-swagger &&
   git checkout ${GIT_HASH} &&
-  go build -v ./cmd/swagger/
+  go build -v ./cmd/swagger/ &&
   mkdir -p /{{ .Values.name }}/usr/bin &&
   mv swagger /{{ .Values.name }}/usr/bin/

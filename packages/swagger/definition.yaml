@@ -1,0 +1,10 @@
+name: swagger
+version: 0.30.5+b3738f4
+category: dev-util
+uri:
+- https://github.com/go-swagger/go-swagger
+license: Apache-2.0
+labels:
+  git.hash: b3738f44372a08a43ab2db192c88538991f000ec
+  github.repo: "go-swagger"
+  github.owner: "go-swagger"

@@ -1,0 +1,16 @@
+image: macaronios/terragon-testing-minimal:latest-amd64
+prelude:
+- >-
+  luet i -y --sync-repos make go ca-certificates git &&
+  luet cleanup --purge-repos && mkdir /tmp &&
+  git clone https://github.com/go-swagger/go-swagger.git
+package_dir: /{{ .Values.name }}
+env:
+- GIT_HASH={{ ( index .Values.labels "git.hash" ) }}
+steps:
+- >-
+  cd go-swagger &&
+  git checkout ${GIT_HASH} &&
+  go build -v ./cmd/swagger/
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mv swagger /{{ .Values.name }}/usr/bin/

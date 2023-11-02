@@ -1,12 +1,12 @@
 name: luet-geaaru
-version: 0.39.1
+version: 0.39.2
 category: system
 provides:
 - name: anise
-  version: 0.39.1
+  version: 0.39.2
   category: macaroni
 - name: pms
-  version: 0.39.1
+  version: 0.39.2
   category: macaroni
 uri:
 - https://github.com/geaaru/luet

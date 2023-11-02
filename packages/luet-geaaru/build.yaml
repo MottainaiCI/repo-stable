@@ -11,4 +11,6 @@ steps:
   cd luet && git checkout v"${PACKAGE_VERSION}-geaaru" &&
   make build &&
   mkdir -p /{{ .Values.name }}/usr/bin &&
-  mv luet /{{ .Values.name }}/usr/bin/luet
+  mv luet /{{ .Values.name }}/usr/bin/luet &&
+  cd /{{ .Values.name }}/usr/bin &&
+  ln -s luet anise

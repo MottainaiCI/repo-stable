@@ -1,5 +1,5 @@
 name: luet-geaaru-thin
-version: 0.40.0
+version: 0.40.1
 category: system
 conflicts:
 - name: luet-geaaru
@@ -10,10 +10,10 @@ conflicts:
   category: system
 provides:
 - name: anise
-  version: 0.40.0
+  version: 0.40.1
   category: macaroni
 - name: pms
-  version: 0.40.0
+  version: 0.40.1
   category: macaroni
 description: Macaroni OS PMS - compressed version
 license: GPL-3.0

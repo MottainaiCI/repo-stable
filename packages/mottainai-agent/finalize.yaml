@@ -1,3 +1,9 @@
 install:
 - chown mottainai-agent:mottainai -R /srv/mottainai
-- cd /usr/lib/systemd/system && if [ ! -e mottainai-agent.service ] ; then ln -s /srv/mottainai/systemd/* . ; fi
+- >-
+  systemdlib="" ;
+  if [ -d /usr/lib/systemd/system ] ; then systemdlib=/usr/lib/systemd/system ; fi ;
+  if [ -d /lib/systemd/system ] ; then systemdlib=/lib/systemd/system ; fi ;
+  if [ -n "${systemdlib}" ] ; then
+  cd ${systemdlib} ; if [ ! -e mottainai-agent.service ] ; then ln -s /srv/mottainai/systemd/* . ; fi ;
+  fi

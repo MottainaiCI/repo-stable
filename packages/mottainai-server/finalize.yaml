@@ -6,4 +6,10 @@ install:
 - chown mottainai-server:mottainai -R /var/lib/mottainai
 # Workaround until https://github.com/mudler/luet/issues/188 is fixed
 # NOTE: This is not good for cross OS. Different distro has different path for systemd .service files.
-- cd /lib/systemd/system && if [ ! -e mottainai-server.service ] ; then ln -s /srv/mottainai/mottainai-server.service ; fi || true
+- >-
+  systemlib="" ;
+  if [ -d /usr/lib/systemd/system ] ; then systemdlib=/usr/lib/systemd/system ; fi ;
+  if [ -d /lib/systemd/system ] ; then systemdlib=/lib/systemd/system ; fi ;
+  if [ -n "${systemdlib}" ] ; then
+  cd ${systemdlib} ; if [ ! -e mottainai-server.service ] ; then ln -s /srv/mottainai/mottainai-server.service ; fi ;
+  fi

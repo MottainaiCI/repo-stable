@@ -1,8 +1,8 @@
-image: "golang"
+image: macaronios/terragon-testing-minimal:latest-amd64
 prelude:
 - >-
-  apt-get update &&
-  apt-get install -y git make &&
+  luet i -y --sync-repos make upx-bin go ca-certificates git &&
+  luet cleanup --purge-repos && mkdir /tmp &&
   git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/{{ .Values.name }}.git &&
   cd {{ .Values.name }} && git checkout "${GIT_TAG%\+*}" &&
   make build &&

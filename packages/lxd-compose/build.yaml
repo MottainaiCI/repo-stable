@@ -1,9 +1,9 @@
-image: "golang"
+image: macaronios/terragon-testing-minimal:latest-amd64
 prelude:
 - >-
-  apt-get update &&
-  apt-get install -y git make
-- git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
+  luet i -y --sync-repos make upx-bin go ca-certificates git &&
+  luet cleanup --purge-repos && mkdir /tmp &&
+  git clone https://github.com/MottainaiCI/{{ .Values.name }}.git
 env:
 - GIT_HASH=v{{ .Values.version }}
 package_dir: /{{ .Values.name }}

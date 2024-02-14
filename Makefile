@@ -9,6 +9,7 @@ COMPRESSION?=zstd
 CLEAN?=true
 TREE?=./packages
 BUILD_ARGS?= --pull --image-repository quay.io/geaaru/mottainairepo-amd64-cache --only-target-package
+GENIDX_ARGS?=--only-upper-level --compress=false
 CONFIG?= --config conf/luet.yaml
 export LUET_BIN?=$(LUET)
 
@@ -38,8 +39,12 @@ rebuild:
 rebuild-all:
 	$(LUET) build $(BUILD_ARGS) $(CONFIG) --tree=$(TREE) --all --destination $(ROOT_DIR)/build --backend $(BACKEND) --concurrency $(CONCURRENCY) --compression $(COMPRESSION)
 
+.PHONY: genidx
+genidx:
+	$(SUDO) $(LUET) tree genidx $(GENIDX_ARGS) --tree=$(TREE)
+
 .PHONY: create-repo
-create-repo:
+create-repo: genidx
 	$(LUET) create-repo $(CONFIG) --tree "$(TREE)" \
     --output $(ROOT_DIR)/build \
     --packages $(ROOT_DIR)/build \
@@ -47,8 +52,8 @@ create-repo:
     --descr "MottainaiCI Official Repository" \
     --urls "http://localhost:8000" \
     --tree-compression $(COMPRESSION) \
-    --tree-filename tree.tar \
-    --meta-compression $(COMPRESSION) \
+    --tree-filename tree.tar.zst \
+    --with-compilertree \
     --type http
 
 .PHONY: serve-repo

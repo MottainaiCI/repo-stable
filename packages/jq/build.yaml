@@ -1,12 +1,13 @@
-image: "golang"
+image: macaronios/terragon-testing-minimal:latest-amd64
 package_dir: /jq
 env:
 - ARCH=linux64
 prelude:
-- apt-get update && apt-get install curl -y
+- >-
+  anise i -y --sync-repos ca-certificates curl wget
 steps:
 - | 
    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
    mkdir -p /${PACKAGE_NAME}/usr/bin && \
-   curl -L https://github.com/stedolan/jq/releases/download/jq-${PACKAGE_VERSION}/jq-${ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+   curl -L https://github.com/{{ ( index .Values.labels "github.owner" ) }}/jq/releases/download/jq-${PACKAGE_VERSION}/jq-${ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
    chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}

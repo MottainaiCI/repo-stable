@@ -1,8 +1,8 @@
 name: jq
-version: 1.6+2
+version: 1.7.1
 category: utils
 uri:
-- http://stedolan.github.com/jq
+- https://github.com/jqlang/jq
 license: MIT CC-BY-3.0
 provides:
 - category: app-misc
@@ -10,5 +10,5 @@ provides:
   version: "1.6+2"
 labels:
   autobump.string_replace: '{ "jq-": "" }'
-  github.owner: stedolan
+  github.owner: jqlang
   github.repo: jq

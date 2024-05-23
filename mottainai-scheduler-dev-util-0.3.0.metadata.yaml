@@ -1,0 +1,158 @@
+path: /build/build/mottainai-scheduler-dev-util-0.3.0.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - mkdir /${PACKAGE_NAME}
+  - mkdir -p /${PACKAGE_NAME}/usr/bin
+  - mkdir -p /${PACKAGE_NAME}/etc/mottainai
+  - mkdir -p /${PACKAGE_NAME}/etc/mottainai
+  - mkdir -p /${PACKAGE_NAME}/etc/mottainai/systemd/
+  - mkdir -p /${PACKAGE_NAME}/srv/mottainai
+  - |
+    cd ${GOPATH}/src/github.com/${GITHUB_ORG}/mottainai-server/${PACKAGE_NAME}/ && \
+    mv ${PACKAGE_NAME} /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    cp contrib/config/mottainai-scheduler.yaml.example /${PACKAGE_NAME}/etc/mottainai/mottainai-scheduler.yaml && \
+    cp contrib/systemd/mottainai* /${PACKAGE_NAME}/etc/mottainai/systemd/
+  env:
+  - GOPATH=/luetbuild/go/
+  prelude: []
+  image: ""
+  seed: luet/cache:caeab1a2386df17e32eccd48d983151d13805a4a514e3facef11ad75407d4fdb
+  package:
+    id: 0
+    name: mottainai-scheduler
+    version: 0.3.0
+    category: dev-util
+    useflags: []
+    state: ""
+    packagerequires:
+    - id: 0
+      name: mottainai-server
+      version: '>=0'
+      category: dev-util
+      useflags: []
+      state: ""
+      packagerequires: []
+      packageconflicts: []
+      provides: []
+      hidden: false
+      annotations: {}
+      path: ""
+      description: ""
+      uri: []
+      license: ""
+      buildtimestamp: ""
+      labels: {}
+      treedir: ""
+      repository: ""
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: 2023-03-17 14:53:37.893904871 +0000 UTC m=+72.843120526
+    labels:
+      github.owner: mottainai-agent
+      github.repo: MottainaiCI
+    treedir: ./packages
+    repository: ""
+  package_dir: /mottainai-scheduler
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 87b4daf0a406007331613d63b7906f5659460267d741be73f7a660fe36d612fc
+compressiontype: zstd
+files:
+- etc/mottainai/mottainai-scheduler.yaml
+- etc/mottainai/systemd/mottainai-scheduler.service
+- etc/mottainai/systemd/mottainai-scheduler@.service
+- usr/bin/mottainai-scheduler
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: mottainai-scheduler
+  version: 0.3.0
+  category: dev-util
+  useflags: []
+  state: ""
+  packagerequires:
+  - id: 0
+    name: mottainai-agent
+    version: '>=0'
+    category: users
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  - id: 0
+    name: mottainai
+    version: '>=0'
+    category: groups
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri: []
+  license: ""
+  buildtimestamp: ""
+  labels:
+    github.owner: mottainai-agent
+    github.repo: MottainaiCI
+  treedir: ""
+  repository: ""

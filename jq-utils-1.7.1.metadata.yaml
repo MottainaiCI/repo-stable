@@ -1,0 +1,81 @@
+path: /build/build/jq-utils-1.7.1.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+    mkdir -p /${PACKAGE_NAME}/usr/bin && \
+    curl -L https://github.com/jqlang/jq/releases/download/jq-${PACKAGE_VERSION}/jq-${ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}
+  env:
+  - ARCH=linux64
+  prelude:
+  - anise i -y --sync-repos ca-certificates curl wget
+  image: macaronios/terragon-testing-minimal:latest-amd64
+  seed: macaronios/terragon-testing-minimal:latest-amd64
+  package:
+    name: jq
+    version: 1.7.1
+    category: utils
+    provides:
+    - name: jq
+      version: 1.6+2
+      category: app-misc
+    uri:
+    - https://github.com/jqlang/jq
+    license: MIT CC-BY-3.0
+    buildtimestamp: 2024-02-18 07:11:31.864206008 +0000 UTC m=+107.806025516
+    labels:
+      autobump.string_replace: '{ "jq-": "" }'
+      github.owner: jqlang
+      github.repo: jq
+    treedir: ./packages
+  package_dir: /jq
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: aafa84465a6d5aed20441ca2b93b321db984481a938b91b2e13bb76c0d57e90a
+compressiontype: zstd
+files:
+- usr/bin/jq
+package_cacheimage: ""
+runtime:
+  name: jq
+  version: 1.7.1
+  category: utils
+  provides:
+  - name: jq
+    version: 1.6+2
+    category: app-misc
+  uri:
+  - https://github.com/jqlang/jq
+  license: MIT CC-BY-3.0
+  labels:
+    autobump.string_replace: '{ "jq-": "" }'
+    github.owner: jqlang
+    github.repo: jq

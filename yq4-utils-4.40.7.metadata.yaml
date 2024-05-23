@@ -1,0 +1,79 @@
+path: /build/build/yq4-utils-4.40.7.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && \
+    mkdir -p /${PACKAGE_NAME}/usr/bin && \
+    YQ_ARCH=amd64 && \
+    curl -L https://github.com/mikefarah/yq/releases/download/v${PACKAGE_VERSION}/yq_linux_${YQ_ARCH} -o /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME} && \
+    chmod +x /${PACKAGE_NAME}/usr/bin/${PACKAGE_NAME}
+  env: []
+  prelude:
+  - apk add curl
+  image: alpine
+  seed: alpine
+  package:
+    name: yq4
+    version: 4.40.7
+    category: utils
+    uri:
+    - https://github.com/mikefarah/yq
+    - https://yq.readthedocs.io
+    - https://github.com/kislyuk/yq
+    - https://pypi.org/project/yq
+    license: MIT
+    buildtimestamp: 2024-02-14 17:41:30.366692427 +0000 UTC m=+14.063842620
+    labels:
+      autobump.strategy: release
+      github.owner: mikefarah
+      github.repo: yq
+    treedir: ./packages
+  package_dir: /yq4
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: a6b08c379466d69caf16d2733958a7d59534a8a91f3bbaeef7c33611bc87a737
+compressiontype: zstd
+files:
+- usr/bin/yq4
+package_cacheimage: ""
+runtime:
+  name: yq4
+  version: 4.40.7
+  category: utils
+  uri:
+  - https://github.com/mikefarah/yq
+  - https://yq.readthedocs.io
+  - https://github.com/kislyuk/yq
+  - https://pypi.org/project/yq
+  license: MIT
+  labels:
+    autobump.strategy: release
+    github.owner: mikefarah
+    github.repo: yq

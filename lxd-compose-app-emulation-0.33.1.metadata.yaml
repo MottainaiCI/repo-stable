@@ -1,0 +1,73 @@
+path: /build/build/lxd-compose-app-emulation-0.33.1.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - cd lxd-compose && git checkout "${GIT_HASH%\+*}" && make build && mkdir -p /lxd-compose/usr/bin
+    && mv lxd-compose /lxd-compose/usr/bin/lxd-compose
+  env:
+  - GIT_HASH=v0.33.1
+  prelude:
+  - luet i -y --sync-repos make upx-bin go ca-certificates git && luet cleanup --purge-repos
+    && mkdir /tmp && git clone https://github.com/MottainaiCI/lxd-compose.git
+  image: macaronios/terragon-testing-minimal:latest-amd64
+  seed: macaronios/terragon-testing-minimal:latest-amd64
+  package:
+    name: lxd-compose
+    version: 0.33.1
+    category: app-emulation
+    description: Supply a way to deploy a complex environment to an LXD Cluster or
+      LXD standalone installation
+    uri:
+    - https://github.com/MottainaiCI/lxd-compose
+    license: GPL-3.0
+    buildtimestamp: 2024-03-03 11:12:32.130054045 +0000 UTC m=+402.372362945
+    labels:
+      github.owner: lxd-compose
+      github.repo: MottainaiCI
+    treedir: ./packages
+  package_dir: /lxd-compose
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 7e2c944e913847fc297ee76d50db2dbe1adcb1dd77fece6abac2941544469449
+compressiontype: zstd
+files:
+- usr/bin/lxd-compose
+package_cacheimage: ""
+runtime:
+  name: lxd-compose
+  version: 0.33.1
+  category: app-emulation
+  description: Supply a way to deploy a complex environment to an LXD Cluster or LXD
+    standalone installation
+  uri:
+  - https://github.com/MottainaiCI/lxd-compose
+  license: GPL-3.0
+  labels:
+    github.owner: lxd-compose
+    github.repo: MottainaiCI

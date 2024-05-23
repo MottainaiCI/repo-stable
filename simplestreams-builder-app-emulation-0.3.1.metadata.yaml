@@ -1,0 +1,93 @@
+path: /build/build/simplestreams-builder-app-emulation-0.3.1.package.tar.zst
+dependencies: []
+compilespec:
+  steps: []
+  env:
+  - GIT_TAG=v0.3.1
+  prelude:
+  - luet i -y --sync-repos make upx-bin go ca-certificates git && luet cleanup --purge-repos
+    && mkdir /tmp && git clone https://github.com/MottainaiCI/simplestreams-builder.git
+    && cd simplestreams-builder && git checkout "${GIT_TAG%\+*}" && make build &&
+    mkdir /simplestreams-builder/usr/bin -p && cp simplestreams-builder /simplestreams-builder/usr/bin/
+  image: macaronios/terragon-testing-minimal:latest-amd64
+  seed: macaronios/terragon-testing-minimal:latest-amd64
+  package:
+    id: 0
+    name: simplestreams-builder
+    version: 0.3.1
+    category: app-emulation
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: LXC/LXD/Incus Simplestreams Tree Builder
+    uri:
+    - https://github.com/MottainaiCI/simplestreams-builder
+    license: GPL-3.0
+    buildtimestamp: 2024-01-05 13:27:40.782943881 +0000 UTC m=+166.820238130
+    labels:
+      github.owner: simplestreams-builder
+      github.repo: MottainaiCI
+    treedir: ./packages
+    repository: ""
+  package_dir: /simplestreams-builder
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 431ac4aa05be7afcd10db7de3b537ffd823f21021b340c7d692fde3330091cba
+compressiontype: zstd
+files:
+- usr/bin/simplestreams-builder
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: simplestreams-builder
+  version: 0.3.1
+  category: app-emulation
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: LXC/LXD/Incus Simplestreams Tree Builder
+  uri:
+  - https://github.com/MottainaiCI/simplestreams-builder
+  license: GPL-3.0
+  buildtimestamp: ""
+  labels:
+    github.owner: simplestreams-builder
+    github.repo: MottainaiCI
+  treedir: ""
+  repository: ""

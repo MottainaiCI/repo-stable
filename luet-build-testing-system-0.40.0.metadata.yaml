@@ -1,0 +1,131 @@
+path: /build/build/luet-build-testing-system-0.40.0.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && cd luet && git checkout v"${PACKAGE_VERSION}-geaaru"
+    && make build-build-small && mkdir -p /luet-build-testing/usr/bin && mv luet-build/luet-build
+    /luet-build-testing/usr/bin/luet-build && cd /luet-build-testing/usr/bin && ln
+    -s luet-build anise-build
+  env: []
+  prelude:
+  - luet i -y --sync-repos make upx-bin go ca-certificates git && luet cleanup --purge-repos
+    && mkdir /tmp && git clone https://github.com/geaaru/luet
+  image: macaronios/terragon-testing-minimal:latest-amd64
+  seed: macaronios/terragon-testing-minimal:latest-amd64
+  package:
+    id: 0
+    name: luet-build-testing
+    version: 0.40.0
+    category: system
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides:
+    - id: 0
+      name: anise-build-testing
+      version: 0.40.0
+      category: macaroni
+      useflags: []
+      state: ""
+      packagerequires: []
+      packageconflicts: []
+      provides: []
+      hidden: false
+      annotations: {}
+      path: ""
+      description: ""
+      uri: []
+      license: ""
+      buildtimestamp: ""
+      labels: {}
+      treedir: ""
+      repository: ""
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: 2023-11-03 22:23:23.116019746 +0000 UTC m=+454.639784907
+    labels:
+      github.owner: geaaru
+      github.repo: luet
+    treedir: ./packages
+    repository: ""
+  package_dir: /luet-build-testing
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 8bd0bd04aec80d032819c0e0d2cf1c25eb43065e586a67c3c5ec40c7dd2d814e
+compressiontype: zstd
+files:
+- usr/bin/anise-build
+- usr/bin/luet-build
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: luet-build-testing
+  version: 0.40.0
+  category: system
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides:
+  - id: 0
+    name: anise-build-testing
+    version: 0.40.0
+    category: macaroni
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri: []
+  license: ""
+  buildtimestamp: ""
+  labels:
+    github.owner: geaaru
+    github.repo: luet
+  treedir: ""
+  repository: ""

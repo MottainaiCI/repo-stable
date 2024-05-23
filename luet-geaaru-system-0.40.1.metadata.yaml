@@ -1,0 +1,170 @@
+path: /build/build/luet-geaaru-system-0.40.1.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && cd luet && git checkout v"${PACKAGE_VERSION}-geaaru"
+    && make build && mkdir -p /luet-geaaru/usr/bin && mv luet /luet-geaaru/usr/bin/luet
+    && cd /luet-geaaru/usr/bin && ln -s luet anise
+  env: []
+  prelude:
+  - luet i -y --sync-repos make upx-bin go ca-certificates git && luet cleanup --purge-repos
+    && mkdir /tmp && git clone https://github.com/geaaru/luet
+  image: macaronios/terragon-testing-minimal:latest-amd64
+  seed: macaronios/terragon-testing-minimal:latest-amd64
+  package:
+    id: 0
+    name: luet-geaaru
+    version: 0.40.1
+    category: system
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides:
+    - id: 0
+      name: anise
+      version: 0.40.1
+      category: macaroni
+      useflags: []
+      state: ""
+      packagerequires: []
+      packageconflicts: []
+      provides: []
+      hidden: false
+      annotations: {}
+      path: ""
+      description: ""
+      uri: []
+      license: ""
+      buildtimestamp: ""
+      labels: {}
+      treedir: ""
+      repository: ""
+    - id: 0
+      name: pms
+      version: 0.40.1
+      category: macaroni
+      useflags: []
+      state: ""
+      packagerequires: []
+      packageconflicts: []
+      provides: []
+      hidden: false
+      annotations: {}
+      path: ""
+      description: ""
+      uri: []
+      license: ""
+      buildtimestamp: ""
+      labels: {}
+      treedir: ""
+      repository: ""
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri:
+    - https://github.com/geaaru/luet
+    license: GPL-3.0
+    buildtimestamp: 2023-11-06 18:03:11.518074506 +0000 UTC m=+403.969363816
+    labels:
+      github.owner: geaaru
+      github.repo: luet
+    treedir: ./packages
+    repository: ""
+  package_dir: /luet-geaaru
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: e18343ccb4fd2c7599f6e4a9b13a2a5237b7e920b68e0b77814ca1835600129c
+compressiontype: zstd
+files:
+- usr/bin/anise
+- usr/bin/luet
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: luet-geaaru
+  version: 0.40.1
+  category: system
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides:
+  - id: 0
+    name: anise
+    version: 0.40.1
+    category: macaroni
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  - id: 0
+    name: pms
+    version: 0.40.1
+    category: macaroni
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: ""
+    labels: {}
+    treedir: ""
+    repository: ""
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri:
+  - https://github.com/geaaru/luet
+  license: GPL-3.0
+  buildtimestamp: ""
+  labels:
+    github.owner: geaaru
+    github.repo: luet
+  treedir: ""
+  repository: ""

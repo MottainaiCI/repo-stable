@@ -1,0 +1,90 @@
+path: /build/build/entities-system-0.9.2+1.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && cd entities && git checkout v"${PACKAGE_VERSION}"-geaaru
+    && make build-small && mkdir /entities/usr/bin -p && mv entities /entities/usr/bin/entities
+  env: []
+  prelude:
+  - luet repo update && luet i -y upx-bin git make go virtual/base && mkdir /tmp &&
+    git clone https://github.com/geaaru/entities
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    id: 0
+    name: entities
+    version: 0.9.2+1
+    category: system
+    useflags: []
+    state: ""
+    packagerequires: []
+    packageconflicts: []
+    provides: []
+    hidden: false
+    annotations: {}
+    path: ""
+    description: ""
+    uri: []
+    license: ""
+    buildtimestamp: 2023-02-17 14:14:49.517062602 +0000 UTC m=+308.880525227
+    labels:
+      github.owner: geaaru
+      github.repo: entities
+    treedir: ./packages
+    repository: ""
+  package_dir: /entities
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 748a6088699a2817a2fd61eecfa03a393f35ab03d1af1ba8ce88eb2cd0ac3e78
+compressiontype: zstd
+files:
+- usr/bin/entities
+package_cacheimage: ""
+runtime:
+  id: 0
+  name: entities
+  version: 0.9.2+1
+  category: system
+  useflags: []
+  state: ""
+  packagerequires: []
+  packageconflicts: []
+  provides: []
+  hidden: false
+  annotations: {}
+  path: ""
+  description: ""
+  uri: []
+  license: ""
+  buildtimestamp: ""
+  labels:
+    github.owner: geaaru
+    github.repo: entities
+  treedir: ""
+  repository: ""

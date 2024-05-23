@@ -1,0 +1,67 @@
+path: /build/build/tar-formers-app-arch-0.9.1.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - export PACKAGE_VERSION=${PACKAGE_VERSION%\+*} && mkdir /tar-formers/usr/bin/ -p
+    && cd tar-formers && git checkout v"${PACKAGE_VERSION}" && make build-small &&
+    mv tar-formers /tar-formers/usr/bin/tar-formers
+  env: []
+  prelude:
+  - luet repo update && luet i -y upx-bin git make go virtual/base && mkdir /tmp &&
+    git clone https://github.com/geaaru/tar-formers
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: tar-formers
+    version: 0.9.1
+    category: app-arch
+    description: Tool to process and modify tar streams/flows.
+    license: GPL-3.0
+    buildtimestamp: 2024-05-23 22:01:13.916577685 +0000 UTC m=+177.977211041
+    labels:
+      github.owner: geaaru
+      github.repo: tar-formers
+    treedir: ./packages
+  package_dir: /tar-formers
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 40190919a8766d8fb3a95134ca6658f72e5bd7f924a62b1673b64f17c56793bf
+compressiontype: zstd
+files:
+- usr/bin/tar-formers
+package_cacheimage: ""
+runtime:
+  name: tar-formers
+  version: 0.9.1
+  category: app-arch
+  description: Tool to process and modify tar streams/flows.
+  license: GPL-3.0
+  labels:
+    github.owner: geaaru
+    github.repo: tar-formers

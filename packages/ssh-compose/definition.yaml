@@ -1,6 +1,6 @@
 category: "app-admin"
 name: "ssh-compose"
-version: "0.1.0"
+version: "0.2.0"
 labels:
   github.repo: "MottainaiCI"
   github.owner: "ssh-compose"

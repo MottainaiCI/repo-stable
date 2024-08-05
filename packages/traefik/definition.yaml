@@ -1,0 +1,10 @@
+name: traefik
+version: 3.3.1
+category: www-servers
+description: "The Cloud Native Application Proxy"
+uri:
+- https://github.com/traefik/traefik
+license: MIT
+labels:
+  github.owner: traefik
+  github.repo: traefik

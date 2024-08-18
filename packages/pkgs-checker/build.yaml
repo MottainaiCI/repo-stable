@@ -1,0 +1,16 @@
+image: macaronios/terragon-testing-minimal:latest-amd64
+prelude:
+- >-
+  anise i -y --sync-repos make upx-bin go ca-certificates git &&
+  anise cleanup --purge-repos && mkdir /tmp &&
+  git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/{{ .Values.name }}.git {{ .Values.name }}
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  cd {{ .Values.name }} &&
+  git checkout v{{ ( index .Values.labels "original.package.version" ) }} &&
+  make build &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mkdir -p /{{ .Values.name }}/usr/share/pkgs-checker/ &&
+  mv {{ .Values.name }} /{{ .Values.name }}/usr/bin/{{ .Values.name }} &&
+  mv contrib/gen-uses-filter.yaml /{{ .Values.name }}/usr/share/pkgs-checker/

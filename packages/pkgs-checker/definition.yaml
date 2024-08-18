@@ -1,14 +1,14 @@
 category: "dev-util"
 name: "pkgs-checker"
 description: "Macaroni OS Artefacts Checker"
-version: "0.14.0"
+version: "0.14.1"
 license: "GPL-3.0"
 provides:
   - category: dev-util
     name: pkgs-checker-minimal
-    version: "0.14.0"
+    version: "0.14.1"
 labels:
   github.repo: "geaaru"
   github.owner: "pkgs-checker"
-  original.package.version: "0.14.0"
+  original.package.version: "0.14.1"
   original.package.name: "pkgs-checker"

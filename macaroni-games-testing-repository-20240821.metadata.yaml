@@ -1,0 +1,55 @@
+path: /build/build/macaroni-games-testing-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-games-testing
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:23:11.815691 +0000 UTC m=+14.674853863
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: b5e74086d3a7621d5fcf1c636a381fcde9f8988909c79945c24d9929cf8b687d
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-games-testing.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-games-testing
+  version: "20240821"
+  category: repository

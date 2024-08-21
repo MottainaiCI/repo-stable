@@ -1,0 +1,63 @@
+path: /build/build/macaroni-phoenix-testing-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-phoenix-testing
+    version: "20240821"
+    category: repository
+    provides:
+    - name: macaroni-funtoo-testing
+      version: "20240821"
+      category: repository
+    buildtimestamp: 2024-08-21 21:47:41.853167196 +0000 UTC m=+8.655901196
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: dfb47b04b833909518350d43a39ff40838d103aecee668329e0c9661b75ca8c1
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-phoenix-testing.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-phoenix-testing
+  version: "20240821"
+  category: repository
+  provides:
+  - name: macaroni-funtoo-testing
+    version: "20240821"
+    category: repository

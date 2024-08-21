@@ -1,0 +1,55 @@
+path: /build/build/macaroni-terragon-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-terragon
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:44:18.020450527 +0000 UTC m=+8.648624572
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 3bac5d4f0939417e2b35771290ae7af9acd9a39114aa6e27835bfca4cbd357c1
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-terragon.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-terragon
+  version: "20240821"
+  category: repository

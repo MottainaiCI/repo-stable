@@ -1,0 +1,55 @@
+path: /build/build/macaroni-eagle-legacy-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-eagle-legacy
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:32:23.947871725 +0000 UTC m=+8.666048025
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 56ca2842911ccbcc9ee101d5eb811fe7a4c5a3e0c3d459f8adf92fee638cc4d8
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-eagle-legacy.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-eagle-legacy
+  version: "20240821"
+  category: repository

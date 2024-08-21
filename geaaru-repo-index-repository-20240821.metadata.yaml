@@ -1,0 +1,55 @@
+path: /build/build/geaaru-repo-index-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: geaaru-repo-index
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:39:11.427111808 +0000 UTC m=+8.658545211
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 90fc5b916ca2dcd4918f23e7f0c299a54744b633685d4cd41a529db4053e3b3d
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/geaaru-repo-index.yml
+package_cacheimage: ""
+runtime:
+  name: geaaru-repo-index
+  version: "20240821"
+  category: repository

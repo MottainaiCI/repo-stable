@@ -1,0 +1,55 @@
+path: /build/build/macaroni-security-testing-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-security-testing
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:23:53.44426604 +0000 UTC m=+8.705407850
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 9ca9ec4505ec470ae173e29d2597b6a90d9b5de3c841721a176d367754c4debb
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-security-testing.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-security-testing
+  version: "20240821"
+  category: repository

@@ -1,0 +1,63 @@
+path: /build/build/macaroni-eagle-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-eagle
+    version: "20240821"
+    category: repository
+    provides:
+    - name: macaroni-funtoo-systemd
+      version: "20240821"
+      category: repository
+    buildtimestamp: 2024-08-21 21:25:35.544096589 +0000 UTC m=+8.749099924
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: 20c6c32f6cd42465eaf3ac756adfd265ef13529bf1497fc6670b3147e6bf9723
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-eagle.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-eagle
+  version: "20240821"
+  category: repository
+  provides:
+  - name: macaroni-funtoo-systemd
+    version: "20240821"
+    category: repository

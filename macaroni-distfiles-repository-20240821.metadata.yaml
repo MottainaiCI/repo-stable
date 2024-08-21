@@ -1,0 +1,55 @@
+path: /build/build/macaroni-distfiles-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: macaroni-distfiles
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:20:59.094522634 +0000 UTC m=+39.003225317
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: fb0525ae79f81b4162b053a0a72ebcae0622b7291626a94455a2d4956e2529ea
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/macaroni-distfiles.yml
+package_cacheimage: ""
+runtime:
+  name: macaroni-distfiles
+  version: "20240821"
+  category: repository

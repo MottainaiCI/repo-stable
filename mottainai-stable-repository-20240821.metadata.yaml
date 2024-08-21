@@ -1,0 +1,55 @@
+path: /build/build/mottainai-stable-repository-20240821.package.tar.zst
+dependencies: []
+compilespec:
+  steps:
+  - |
+    mkdir -p /repo/etc/luet/repos.conf.d/ && \
+    mv ${PACKAGE_NAME}.yml /repo/etc/luet/repos.conf.d/
+  env: []
+  prelude: []
+  image: macaronios/terragon-minimal:latest-amd64
+  seed: macaronios/terragon-minimal:latest-amd64
+  package:
+    name: mottainai-stable
+    version: "20240821"
+    category: repository
+    buildtimestamp: 2024-08-21 21:34:05.071846957 +0000 UTC m=+8.677233573
+    treedir: /build/packages
+  package_dir: /repo
+  retrieve: []
+  unpack: false
+  includes: []
+  excludes: []
+  build_options:
+    pushimagerepository: luet/cache
+    pullimagerepository:
+    - luet/cache
+    pullfirst: false
+    keepimg: false
+    push: false
+    concurrency: 0
+    compressiontype: ""
+    wait: false
+    onlydeps: false
+    nodeps: false
+    solveroptions: {}
+    buildvaluesfile: []
+    buildvalues:
+    - {}
+    packagetargetonly: false
+    rebuild: false
+    backendargs: []
+    backendtype: ""
+    templatesfolder: []
+  copy: []
+  requires_final_images: false
+checksums:
+  sha256: c6946fab3e614a0cacd57b2e1cdf68e65c678b857e900a77532631c42583b420
+compressiontype: zstd
+files:
+- etc/luet/repos.conf.d/mottainai-stable.yml
+package_cacheimage: ""
+runtime:
+  name: mottainai-stable
+  version: "20240821"
+  category: repository

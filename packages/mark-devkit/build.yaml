@@ -1,0 +1,14 @@
+image: macaronios/terragon-testing-minimal:latest-amd64
+prelude:
+- >-
+  anise i -y --sync-repos make upx-bin go ca-certificates git &&
+  anise cleanup --purge-repos && mkdir /tmp &&
+  git clone https://github.com/macaroni-os/mark-devkit
+package_dir: /{{ .Values.name }}
+steps:
+- >-
+  PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
+  cd mark-devkit && git checkout v"${PACKAGE_VERSION}" &&
+  make build-small &&
+  mkdir -p /{{ .Values.name }}/usr/bin &&
+  mv mark-devkit /{{ .Values.name }}/usr/bin/mark-devkit

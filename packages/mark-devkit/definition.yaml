@@ -1,6 +1,6 @@
 name: mark-devkit
 version: 0.3.0
-category: system
+category: dev-util
 description: M.A.R.K. Development Kit tool
 license: GPL-3.0
 labels:

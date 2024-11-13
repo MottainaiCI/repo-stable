@@ -1,6 +1,6 @@
 category: "app-emulation"
 name: "distrobuilder"
-version: "20231113"
+version: "20241113"
 labels:
   github.repo: "geaaru"
   github.owner: "distrobuilder"

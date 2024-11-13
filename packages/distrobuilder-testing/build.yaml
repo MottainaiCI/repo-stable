@@ -1,7 +1,8 @@
 image: macaronios/phoenix-minimal-devel:latest-amd64
 prelude:
 - >-
-  anise i -y --sync-repos make upx-bin go ca-certificates git &&
+  anise i -y --sync-repos make upx-bin go ca-certificates git gcc-config binutils-libs &&
+  eval 'gcc-config 1 || true' && macaronictl env-update &&
   anise cleanup --purge-repos && eval 'mkdir /tmp || true' &&
   mkdir /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ -p &&
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ &&
@@ -12,8 +13,8 @@ package_dir: /{{ .Values.name }}
 steps:
 - >-
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder &&
-  git checkout v${PACKAGE_VERSION%\+*} &&
-  make &&
+  git checkout {{ ( index .Values.labels "github.tag" ) }} &&
+  make default &&
   cd distrobuilder/ &&
   go build -v . &&
   mkdir /{{ .Values.name }}/usr/bin -p &&

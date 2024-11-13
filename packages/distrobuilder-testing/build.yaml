@@ -1,8 +1,8 @@
-image: "golang"
+image: macaronios/terragon-testing-minimal:latest-amd64
 prelude:
 - >-
-  apt-get update &&
-  apt-get install -y git make &&
+  anise i -y --sync-repos make upx-bin go ca-certificates git &&
+  anise cleanup --purge-repos && eval 'mkdir /tmp || true' &&
   mkdir /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ -p &&
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ &&
   git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder.git

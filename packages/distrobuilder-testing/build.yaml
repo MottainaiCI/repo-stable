@@ -1,4 +1,4 @@
-image: macaronios/terragon-testing-minimal:latest-amd64
+image: macaronios/phoenix-minimal-devel:latest-amd64
 prelude:
 - >-
   anise i -y --sync-repos make upx-bin go ca-certificates git &&

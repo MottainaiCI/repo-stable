@@ -1,5 +1,5 @@
 name: distrobuilder
-version: 20241113+2
+version: 20241113+3
 category: app-emulation
 description: System container image builder for LXC and LXD
 uri:

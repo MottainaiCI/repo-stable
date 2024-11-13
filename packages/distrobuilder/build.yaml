@@ -8,12 +8,13 @@ prelude:
   git clone https://github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder.git
 env:
 - GOPATH=/go
-- DEBIAN_FRONTEND=noninteractive
 package_dir: /{{ .Values.name }}
 steps:
 - >-
   cd /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/distrobuilder &&
   git checkout v${PACKAGE_VERSION%\+*} &&
-  make &&
+  make default &&
+  cd distrobuilder/ &&
+  go build -v . &&
   mkdir /{{ .Values.name }}/usr/bin -p &&
-  mv /go/bin/distrobuilder /{{ .Values.name }}/usr/bin/distrobuilder
+  cp ./distrobuilder /{{ .Values.name }}/usr/bin/distrobuilder

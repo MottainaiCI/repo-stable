@@ -1,7 +1,7 @@
 image: macaronios/phoenix-minimal-devel:latest-amd64
 prelude:
 - >-
-  anise i -y --sync-repos make upx-bin go ca-certificates git gcc-config binutils-libs &&
+  anise i -y --sync-repos make upx-bin go ca-certificates git gcc-config binutils-libs linux-headers &&
   eval 'gcc-config 1 || true' && macaronictl env-update &&
   anise cleanup --purge-repos && eval 'mkdir /tmp || true' &&
   mkdir /go/src/github.com/{{ ( index .Values.labels "github.repo" ) }}/ -p &&

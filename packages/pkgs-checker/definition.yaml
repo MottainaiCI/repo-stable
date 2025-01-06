@@ -1,5 +1,5 @@
 name: pkgs-checker
-version: 0.14.1+1
+version: 0.15.0
 category: dev-util
 conflicts:
 - name: pkgs-checker-minimal
@@ -7,7 +7,7 @@ conflicts:
   category: dev-util
 provides:
 - name: pkgs-checker-minimal
-  version: 0.14.1
+  version: 0.15.0
   category: dev-util
 description: Macaroni OS Artefacts Checker
 license: GPL-3.0
@@ -15,4 +15,4 @@ labels:
   github.owner: pkgs-checker
   github.repo: geaaru
   original.package.name: pkgs-checker
-  original.package.version: 0.14.1
+  original.package.version: 0.15.0

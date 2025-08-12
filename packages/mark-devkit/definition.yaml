@@ -1,10 +1,10 @@
 name: mark-devkit
-version: 0.22.0
+version: 0.22.0+1
 category: dev-util
 description: M.A.R.K. Development Kit tool
+uri:
+- https://github.com/macaroni-os/mark-devkit
 license: GPL-3.0
 labels:
   github.owner: macaroni-os
   github.repo: mark-devkit
-uri:
-- https://github.com/macaroni-os/mark-devkit

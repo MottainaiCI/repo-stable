@@ -1,11 +1,10 @@
 name: swagger
-version: 0.32.3
+version: 0.32.3+1
 category: dev-util
 uri:
 - https://github.com/go-swagger/go-swagger
 license: Apache-2.0
 labels:
   git.hash: v0.32.3
-  #git.hash: ac5bae889923c232b403e755a522f788654e90ac
-  github.repo: "go-swagger"
-  github.owner: "go-swagger"
+  github.owner: go-swagger
+  github.repo: go-swagger

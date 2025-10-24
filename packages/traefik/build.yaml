@@ -4,7 +4,7 @@ package_dir: /{{.Values.name}}
 prelude:
 - >-
   anise i -y --sync-repos make ca-certificates git tar &&
-  anise cleanup --purge-repos && mkdir /tmp
+  anise cleanup --purge-repos
 
 steps:
 - | 

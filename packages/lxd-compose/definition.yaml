@@ -1,5 +1,5 @@
 name: lxd-compose
-version: 0.37.1
+version: 0.38.0
 category: app-emulation
 description: Supply a way to deploy a complex environment to an LXD Cluster or LXD
   standalone installation

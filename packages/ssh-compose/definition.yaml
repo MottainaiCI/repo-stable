@@ -1,10 +1,10 @@
-category: "app-admin"
-name: "ssh-compose"
-version: "0.10.2"
-labels:
-  github.repo: "MottainaiCI"
-  github.owner: "ssh-compose"
-description: "Supply a way to deploy a complex environment through SSH Protocol"
+name: ssh-compose
+version: 0.10.2+1
+category: app-admin
+description: Supply a way to deploy a complex environment through SSH Protocol
 uri:
-- "https://github.com/MottainaiCI/ssh-compose"
-license: "GPL-3.0"
+- https://github.com/MottainaiCI/ssh-compose
+license: GPL-3.0
+labels:
+  github.owner: ssh-compose
+  github.repo: MottainaiCI

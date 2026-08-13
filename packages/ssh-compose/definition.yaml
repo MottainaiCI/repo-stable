@@ -1,5 +1,5 @@
 name: ssh-compose
-version: 0.10.2+1
+version: 0.13.0
 category: app-admin
 description: Supply a way to deploy a complex environment through SSH Protocol
 uri:

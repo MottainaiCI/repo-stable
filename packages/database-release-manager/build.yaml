@@ -1,10 +1,10 @@
 image: macaronios/terragon-minimal:latest-amd64
 prelude:
 - >-
-  luet repo update &&
-  luet i make sys-devel-1.13/automake sys-devel-2.69/autoconf git m4 virtual/base bash &&
-  luet cleanup --purge-repos &&
-  mkdir /root /tmp
+  anise repo update &&
+  anise i make sys-devel-1.13/automake sys-devel-2.69/autoconf git m4 virtual/base bash &&
+  anise cleanup --purge-repos &&
+  eval 'mkdir /root || true'
 - >-
   PACKAGE_VERSION=${PACKAGE_VERSION%\+*} &&
   git config --global advice.detachedHead false &&

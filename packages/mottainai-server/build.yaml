@@ -10,7 +10,7 @@ prelude:
 # turn the detached message off
 - git config --global advice.detachedHead false
 env:
-- GOPATH=/luetbuild/go/
+- GOPATH=/anisebuild/go/
 - GIT_HASH=v{{ .Values.version }}
 - GITHUB_ORG=MottainaiCI
 - LIB_DIR=/var/lib/mottainai

@@ -1,0 +1,13 @@
+category: "system"
+name: "anise-build"
+version: "0.42.0"
+provides:
+- category: macaroni
+  name: anise-build
+  version: "0.42.0"
+- category: app-admin
+  name: anise-build
+  version: "0.42.0"
+labels:
+  github.repo: "anise"
+  github.owner: "macaroni-os"

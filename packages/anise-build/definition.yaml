@@ -1,12 +1,12 @@
 name: anise-build
-version: 0.42.0+1
+version: 0.42.1
 category: system
 provides:
 - name: anise-build
-  version: 0.42.0
+  version: 0.42.1
   category: macaroni
 - name: anise-build
-  version: 0.42.0
+  version: 0.42.1
   category: app-admin
 labels:
   github.owner: macaroni-os

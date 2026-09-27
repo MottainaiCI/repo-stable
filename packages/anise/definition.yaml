@@ -1,0 +1,19 @@
+name: anise
+version: 0.42.0
+category: system
+provides:
+- name: anise
+  version: 0.42.0
+  category: macaroni
+- name: anise
+  version: 0.42.0
+  category: app-admin
+- name: pms
+  version: 0.41.1
+  category: macaroni
+uri:
+- https://github.com/macaroni-os/anise
+license: GPL-3.0
+labels:
+  github.owner: macaroni-os
+  github.repo: anise

@@ -1,13 +1,13 @@
-category: "system"
-name: "anise-build"
-version: "0.42.0"
+name: anise-build
+version: 0.42.0+1
+category: system
 provides:
-- category: macaroni
-  name: anise-build
-  version: "0.42.0"
-- category: app-admin
-  name: anise-build
-  version: "0.42.0"
+- name: anise-build
+  version: 0.42.0
+  category: macaroni
+- name: anise-build
+  version: 0.42.0
+  category: app-admin
 labels:
-  github.repo: "anise"
-  github.owner: "macaroni-os"
+  github.owner: macaroni-os
+  github.repo: anise

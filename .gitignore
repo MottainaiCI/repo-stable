@@ -1,3 +1,4 @@
 *.swp
 *.swo
 build/
+packages/.anise-idx.json.zstd

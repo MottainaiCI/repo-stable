@@ -68,5 +68,5 @@ autobump:
 auto-bump: autobump
 
 .PHONY: validate
-validate:
+validate: genidx
 	$(ANISE) tree validate -t ${TREE}

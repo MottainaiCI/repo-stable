@@ -3,6 +3,8 @@ prelude:
 - >-
   anise i -y --sync-repos make upx-bin go ca-certificates git &&
   anise cleanup --purge-repos &&
+  eval 'mkdir /tmp || true' &&
+  chmod a+rwx /tmp &&
   git clone https://github.com/macaroni-os/anise
 package_dir: /{{ .Values.name }}
 steps:
